@@ -194,7 +194,7 @@ class Plotter:
             
             msg = json.dumps({
                 "event": "UPDATE_PARAMS",
-                "parameters": params,
+                "parameters": new_params,
             })
         
             self._params_queue.put(msg)
@@ -402,7 +402,7 @@ class RecvThread(threading.Thread):
     async def prepare_corrected_pick(self, websocket):
 
         params = dict(
-            dataset=r"C:\Users\Sivert\Workbench\mib\2024_01_30_freestanding-LSMO_circle-tilt\20240131_175818\011_LMSTEM_256x256_Step=50x50_Rot=0_exposure=5ms_400msFlyback_T=-150.0C_TX=5.6_TY=2.1.hdr",
+            dataset=r"C:\Workbench\mib\20240409_162339\013_LMSTEM_256x256_Step=45x45_Rot=0_exposure=5ms_200msFlyback_T=-150.0C_TX=0.8_TY=0.8_phi=1.0.hdr",
         )
         
         await websocket.send(json.dumps({
