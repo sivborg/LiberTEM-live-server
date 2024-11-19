@@ -157,7 +157,7 @@ class ResultSampler:
             asyncio.Queue[Tuple[str, LatestContainer[UDFResults]]]
         ] = {}
         self._sampler_tasks: Dict[WebSocketClientProtocol, asyncio.Task] = {}
-        self._min_delta = 1/60.0  # should this be a parameter?
+        self._min_delta = 1/30.0  # should this be a parameter?
         self._parameters = parameters
         self._udfs = udfs
 
@@ -403,6 +403,7 @@ class ResultSampler:
                     acq_id=acq_id,
                 )
                 previous_results = latest
+                last_update = time.monotonic()
 
 
 @numba.njit(cache=True)
