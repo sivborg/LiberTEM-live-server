@@ -194,7 +194,7 @@ class Plotter:
             
             msg = json.dumps({
                 "event": "UPDATE_PARAMS",
-                "parameters": params,
+                "parameters": new_params,
             })
         
             self._params_queue.put(msg)
@@ -317,7 +317,7 @@ class RecvThread(threading.Thread):
 
             update_task = asyncio.ensure_future(update_params_task(self.params_queue, websocket))
 
-            await self.prepare_corrected_pick(websocket)
+            # await self.prepare_corrected_pick(websocket)
 
             try:
                 while True:
