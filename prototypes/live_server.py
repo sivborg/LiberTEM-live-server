@@ -178,8 +178,8 @@ class ResultSampler:
         # an inner helper that is given to the caller to push results to
         # clients:
         async def _result_sink(partial_results: UDFResults):
-            # result_copy = copy.deepcopy(partial_results)
-            result_copy = partial_results
+            result_copy = copy.deepcopy(partial_results)
+            #result_copy = partial_results
 
             if False:
                 # XXX
